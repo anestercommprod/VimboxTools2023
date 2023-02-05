@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Styles/GlobalStyles.css">
+
+    <script src="./Scripts/initialize.js"></script>
+    <script src="./Scripts/popup.js" defer></script>
+    <script src="./../Scripts/eventHandler.js" defer></script>
+
+    <style>
+        .heading{
+            height: 38px;
+            min-height: 38px;
+            max-height: 38px;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .heading:hover{
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div class="contentHolder" id="contentHolder">
+        <p class="heading">Vimbox Tools</p>
+        
+        <a class="hrefButton" href="./pages/templates.html">
+            <button>Templates</button>
+        </a>
+        <a class="hrefButton" href="./pages/techsuptools.html">
+            <button>Tech-Sup Tools</button>
+        </a>
+        <a class="hrefButton" href="./pages/adminTools.html">
+            <button>Admin. Tools</button>
+        </a>
+        <a class="hrefButton" href="./pages/autofaqStatus.html">
+            <button>AutoFAQ Status board</button>
+        </a>
+        <a class="hrefButton" href="./pages/settings.html">
+            <button>Settings</button>
+        </a>
+        <a class="hrefButton" href="#">
+            <button><i>#FAQ</i></button>
+        </a>
+    </div>
+</body>
+</html>

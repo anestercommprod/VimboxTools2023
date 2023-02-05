@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="./../Styles/GlobalStyles.css">
+
+    <script src="./../Scripts/templates.js" defer></script>
+    <script src="./../Scripts/eventHandler.js" defer></script>
+
+    <style>
+        .templateMainText{
+            width: 100%;
+            max-height: 233px;
+            min-height: 96px;
+
+            color: var(--apple_colorBlack);
+            font-size: 16px;
+
+            padding-top: 2px;
+            padding-bottom: 2px;
+            padding-left: 6px;
+            padding-right: 6px;
+
+            outline: 1px solid rgb(28,28,32, 0.333);
+            box-shadow: var(--elementShadow);
+
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="contentHolder">
+        <a class="hrefButton" href="./../popup.html">
+            <p class="heading">Templates</p>
+        </a>
+        <select id="techSup_templates_selector">
+
+        </select>
+
+        <p class="templateMainText greatScroll_vertical" id="templateText">Loading...</p>
+        
+        <button id="buttonCopy">Copy</button>
+    </div>
+</body>
+</html>

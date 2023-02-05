@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="./../Styles/GlobalStyles.css">
+
+    <script src="./../Scripts/adminTools.js" defer></script>
+    <script src="./../Scripts/eventHandler.js" defer></script>
+
+    <style>
+        .contentHolder{
+            padding-bottom: 0;
+        }
+
+        .flexDefault_row{
+            width: inherit;
+            max-width: var(--buttonWidth);
+
+            gap: var(--perElementGapSmall);
+            justify-content: center;
+        }
+
+        .buttonSection{
+            width: 100%;
+            height: fit-content;
+
+            justify-content: center;
+            gap: var(--perElementGap);
+        }
+        .monthSelector{
+            width: inherit;
+            min-width: 160px;
+            max-width: 160px;
+
+            min-height: 30px;
+
+            font-size: 18px;
+        }
+
+        .endResults{
+            width: 100%;
+            height: auto;
+            max-height: 238px;
+
+            padding: var(--pagePaddingSmall);
+
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: nowrap;
+
+            overflow-y: auto;
+        }
+        .employeeRow{
+            width: inherit;
+            color:var(--apple_colorBlack);
+            font-size: 16px;
+            outline: 1px solid rgba(0,0,0, 0.6);
+            
+            padding: 3px;
+            border-radius: var(--elementBevelSmall);
+        }
+
+        .bgGood{
+            background-color: rgba(179,217,165,0.86);
+        }
+        .bgBad{
+            background-color: rgba(253,221,148,0.86);
+        }
+        .bgDurak{
+            background-color: rgba(253,70,80,0.86);
+        }
+    </style>
+</head>
+<body>
+    <div class="contentHolder">
+        <div class="buttonSection flexDefault_column">
+            <a class="hrefButton" href="./../popup.html">
+                <p class="heading">Admin. Tools</p>
+            </a>
+            <div class="flexDefault_row">
+                <select class="monthSelector" id="monthSelector">
+                    <option value="1" selected>January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <button id="auditButton">Audit</button>
+            </div>
+            <button id="scheduleButton">Schedule</button>
+        </div>
+        <div class="flexDefault_column endResults greatScroll_vertical" id="endResults">
+            
+        </div>
+    </div>
+</body>
+</html>

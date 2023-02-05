@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./../Styles/GlobalStyles.css">
+
+    <script src="./../Scripts/techsuptools.js" defer></script>
+
+    <style>
+        .flexDefault_column{
+            width: inherit;
+            
+            padding: var(--pagePadding);
+            outline: 1px solid var(--lightElementOutline_dark);
+
+            gap: var(--perElementGapSmall);
+        }
+        input{
+            min-width: var(--buttonWidth);
+        }
+    </style>
+</head>
+<body>
+    <div class="contentHolder">    
+        <a class="hrefButton" href="./../popup.html">
+            <p class="heading">Tech-Sup Tools</p>
+        </a>
+        <div class="flexDefault_column">
+            <input type="number" placeholder="Students' ID..." maxlength="11" id="studentIdInput">
+            <button id="generateLesson_forStudentWithTestTeacher">Generate Lesson</button>
+        </div>
+        <div class="flexDefault_column">
+            <input type="number" placeholder="Teachers' ID..." maxlength="11" id="teacherIdInput">
+            <button id="generateLesson_forTeacherWithTestStudent">Generate Lesson</button>
+        </div>
+    </div>
+</body>
+</html>

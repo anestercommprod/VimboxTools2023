@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFAQ test</title>
+
+    <link rel="stylesheet" href="./../Styles/GlobalStyles.css">
+    
+    <script src="./../Scripts/autofaqStatus.js" defer></script>
+    <script src="./../Scripts/eventHandler.js" defer></script>
+
+    <style>
+        body{
+            width: 400px;
+            max-width: 400px; 
+            height: 560px; 
+            max-height: 560px; 
+            
+            background-color: rgb(36,36,36); 
+
+            display: flex; 
+            flex-direction: column; 
+            overflow-y: auto;
+        }
+
+        .employerTableCell{
+            width: inherit;
+            min-width: 300px;
+            min-height: 28px;
+            height: 28px;
+
+            background-color: rgb(24,24,24);
+            border-radius: 3px;
+
+            font-size: 14px;
+        }
+
+        .flexColumnCentered{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        .flexRowCentered{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        .flexRowStart{
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 8px;
+        }
+
+        .topSection_employers{
+            width: 100%; 
+            height: 402px; 
+            min-height: 402px; 
+
+            padding: 4px;
+            background-color: rgb(48,48,48); 
+
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            overflow-y: auto;
+        }
+        .bottomSection_buttons{
+            box-sizing: border-box; 
+            overflow-y: auto;
+
+            background-color: rgb(24,24,24); 
+            max-height: 120px;
+            height: 120px;
+            width: 100%; 
+            
+        }
+        .buttonAF{
+            width: inherit;
+            max-width: 300px;
+        }
+
+
+        .employerGroupSelector{
+            width: 300px;
+            height: 32px;
+
+            padding-left: 4px;
+            padding-right: 4px;
+
+            border-radius: var(--elementBevelSmall);
+
+            color: black;
+            font-size: 18px;
+        }
+        .status_online{
+            background-color: rgb(32, 128, 32)
+        }
+        .status_offline{
+            background-color: rgb(32, 32, 32)
+        }
+        .status_busy{
+            background-color: rgb(128, 32, 32)
+        }
+        .status_timeout{
+            background-color: rgb(48, 96, 128)
+        }
+
+        .heading{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <a class="hrefButton" href="./../popup.html">
+        <p class="heading">AutoFAQ Status Board</p>
+    </a>
+    <div id="statusContainer" class="topSection_employers greatScroll_vertical">
+    
+    </div>
+    
+    <div id="buttonContainer" class="flexColumnCentered bottomSection_buttons">
+        <button id="fetchingButton" class="buttonAF flexRowCentered">Integrate employer list</button>
+        
+        <select name="employeGroup" class="employerGroupSelector" id="employerGroupSelector">
+            <option value="techSup1crm2">Tech-Support 1st Line CRM2(E. Borisov)</option>
+            <option value="techSup1chat" who="baby">Tech-Support 1st Line Chat(A. Paschenko)</option>
+            <option value="techSup2crm2">Tech-Support 2nd Line(A. Polyakov)</option>
+            <option value="clientSupport1chat">Client Support Chats(O. Klimenko)</option>
+        </select>
+    </div>
+
+    <div style="display: none; max-width: 0px; max-height: 0px; position: absolute;" id="invisibleContainer"></div>
+</body>
+</html>
