@@ -10,11 +10,19 @@
     
     <script src="./../Scripts/settings.js" defer></script>
     <script src="./../Scripts/eventHandler.js" defer></script>
+    <script src="./../Scripts/fetchRequester.js"></script>
+    <script src="./../Scripts/uiElements.js"></script>
 
     <style>
-        button{
-            font-size: 18px;
+        p{
+            color: var(--colorDark);
+            font-weight: 300;
         }
+
+        .contentHolder{
+            padding-bottom: 0;
+        }
+
         .propertiesSection{
             width: 100%;
 
@@ -24,16 +32,28 @@
             gap: var(--perElementGapSmall);
         }
         .flexDefault_column{
+            width: inherit;
             gap: var(--perElementGapSmall);
         }
 
         .limiter{
             width: inherit;
-            max-height: 270px;
+            max-height: 334px;
+
+            padding-bottom: 1px;
+            padding-top: 1px;
 
             flex-wrap: nowrap;
 
             overflow: auto;
+        }
+        .buttonSizeInput{
+            min-width: var(--buttonWidth);
+            max-width: var(--buttonWidth);
+        }
+
+        .hiddenOptions{
+            display: none;
         }
     </style>
 </head>
@@ -44,32 +64,55 @@
         </a>
         <div class="limiter flexDefault_column greatScroll_vertical">
 
-            <div class="flexDefault_row propertiesSection">
-                <input type="text" placeholder="Google Sheet ID" id="googleSheetInput"> 
+            <div class="flexDefault_column propertiesSection">
+                <p>Template Sheet</p>
+                <input type="text" placeholder="Google Sheet ID" id="googleSheetInput" class="buttonSizeInput"> 
                 <button id="saveSheetID">Save</button>
             </div>
             
-            <div class="flexDefault_row propertiesSection">
-                <input type="text" placeholder="Audit Sheet ID" id="auditSheetInput"> 
+            <div class="flexDefault_column propertiesSection">
+                <p>Audit Sheet</p>
+                <input type="text" placeholder="Audit Sheet ID" id="auditSheetInput" class="buttonSizeInput"> 
                 <button id="saveAuditSheetID">Save</button>
             </div>
     
-            <div class="flexDefault_row propertiesSection">
-                <input type="text" placeholder="Schedule Sheet link" id="scheduleSheetInput"> 
+            <div class="flexDefault_column propertiesSection">
+                <p>Schedule Sheet</p>
+                <input type="text" placeholder="Schedule Sheet link" id="scheduleSheetInput" class="buttonSizeInput"> 
                 <button id="saveScheduleSheetID">Save</button>
             </div>
     
-            <div class="flexDefault_row propertiesSection">
+            <div class="flexDefault_column propertiesSection">
+                <p>Test Accounts</p>
                 <div class="flexDefault_column">
-                    <input type="text" placeholder="Test Teachers' ID" id="testTeacherID">
-                    <input type="text" placeholder="Test Students' ID" id="testStudentID">
+                    <input type="text" placeholder="Test Teachers' ID" id="testTeacherID" class="buttonSizeInput">
+                    <input type="text" placeholder="Test Students' ID" id="testStudentID" class="buttonSizeInput">
                 </div> 
                 <button id="saveTestIDs">Save</button>
             </div>
+            
+            <div class="flexDefault_row propertiesSection">
+                <div class="flexDefault_column">
+                    <p>AutoFAQ Groups</p>
+                    <input type="text" placeholder="AutoFAQ Config Spreadsheet..." id="afboard_configSheetId" class="buttonSizeInput">
+                    <div class="flexDefault_column hiddenOptions">
+                        <input type="text" placeholder="Tech-Sup Chats Group ID..." id="afboard_groupChats" class="buttonSizeInput">
+                        <input type="text" placeholder="Tech-Sup CRM2 Group ID..." id="afboard_groupCRM" class="buttonSizeInput">
+                        <input type="text" placeholder="Tech-Sup 2Line Group ID..." id="afboard_group2Line" class="buttonSizeInput">
+                        <input type="text" placeholder="Tech-Sup CSS Group ID..." id="afboard_groupCSS" class="buttonSizeInput">
+                    </div>
+                    <button id="afboard_save">Save</button>
+                    <button id="afboard_resetGroups">Reset groups</button>
+                </div> 
+            </div>
 
+            <br><br>
+
+            <div class="flexDefault_column propertiesSection">
+                <p>Global Reset</p>
+                <button id="extensionReset">Reset</button>
+            </div>
         </div>
-
-        <button id="extensionReset">Reset</button>
     </div>
 </body>
 </html>

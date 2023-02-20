@@ -11,7 +11,7 @@ let randomHash = GenerateHash(14);
 
 
 function GenerateLesson_forStudent(){
-    if(localStorage.getItem('testTeacherID') != null)
+    if(localStorage.getItem('testTeacherID') != null && newStudentId.value.length >= 3)
     {
         randomHash = GenerateHash(14);
         fetch(`https://api-english.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`, 
@@ -44,12 +44,22 @@ function GenerateLesson_forStudent(){
     }
     else{
         setTimeout(() => {
-            alert('One have to define theirs IDs first, or be prohibited.');
+            if(localStorage.getItem('testTeacherID') == undefined)
+            {
+                alert(ThrowAnErr('101x0'));
+            }
+            if(newStudentId.value.length >= 1 && newStudentId.value.length <= 3)
+            {
+                alert(ThrowAnErr('102x0'));
+            }
+            if(newStudentId.value.length == 0){
+                alert(ThrowAnErr('100x2a'));
+            }
         }, 360);
     }
 }
 function GenerateLesson_forTeacher(){
-    if(localStorage.getItem('testStudentID') != null)
+    if(localStorage.getItem('testStudentID') != null && newTeacherId.value.length >= 3)
     {
         randomHash = GenerateHash(14);
         fetch(`https://api-english.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`, 
@@ -82,7 +92,17 @@ function GenerateLesson_forTeacher(){
     }
     else{
         setTimeout(() => {
-            alert('One have to define theirs IDs first, or be prohibited.');
+            if(localStorage.getItem('testStudentID') == undefined)
+            {
+                alert(ThrowAnErr('101x0') + "\n" + localStorage.getItem('testStudentID'));
+            }
+            if(newTeacherId.value.length >= 1 && newTeacherId.value.length <= 3)
+            {
+                alert(ThrowAnErr('102x0'));
+            }
+            if(newTeacherId.value.length == 0){
+                alert(ThrowAnErr('100x2b'));
+            }
         }, 360);
     }
 }
@@ -108,20 +128,14 @@ function AddListeners()
         GenerateLesson_forStudent();
             
             // Animations
-        generateLesson_forStudent.style.animation = "";
-        setTimeout(() => {
-            generateLesson_forStudent.style.animation = "buttonHappyAdaptive 0.333s forwards";
-        }, 32);
+        PlayButtonAnimation(generateLesson_forStudent.id);
     });
     generateLesson_forTeacher.addEventListener('click', function()
     {
         GenerateLesson_forTeacher();
             
             // Animations
-            generateLesson_forTeacher.style.animation = "";
-        setTimeout(() => {
-            generateLesson_forTeacher.style.animation = "buttonHappyAdaptive 0.333s forwards";
-        }, 32);
+        PlayButtonAnimation(generateLesson_forTeacher.id);
     });
 }
 

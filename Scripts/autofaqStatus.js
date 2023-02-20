@@ -1,5 +1,6 @@
 const invisibleCont = document.getElementById('invisibleContainer');
 const statusCont = document.getElementById('statusContainer');
+const buttonIntegrate = document.getElementById("fetchingButton");
 let statusJSon;
 let statusJSon_resolved;
 
@@ -10,6 +11,8 @@ let currentGroup = "";
 
 function FetchingStatus()
 {
+    statusCont.innerHTML = "<p>Loading...</p>";
+    
     fetch("https://skyeng.autofaq.ai/api/operators/statistic/currentState", {
     "headers": {
       "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -29,11 +32,17 @@ function FetchingStatus()
     "method": "GET",
     "mode": "cors",
     "credentials": "include"
-  }).then(data => {statusJSon = data.json(); statusJSon.then(value => {statusJSon_resolved = value})});
+  }).then(data => {
+    statusJSon = data.json(); 
+    statusJSon.then(value => {
+        statusJSon_resolved = value;
+        IntegrateEveryTechSup();
+    })}).catch((error) => {
+        statusCont.innerHTML = "<p>" + error + "<br><br>" + "Yet it can be related to network issues or site availability." + "<br><br>" + "Check if <a href='https://skyeng.autofaq.ai/login' target='_blank'>AutoFAQ</a> is even loads itself." + "</p>";
+      });;
   
   console.log("clicked!");
 }
-FetchingStatus();
 
 function setCurrentGroup(){
     currentGroup = groupSelector.value;
@@ -64,10 +73,10 @@ function IntegrateEveryTechSup()
 {
     console.log("initializing...");
   
-    var appendantContainer = document.getElementById('statusContainer');
     var nameCheckingString;
     var checkingElement;
 
+    statusCont.innerHTML = "";
     setCurrentGroup();
 
     for (let i = 0; i < statusJSon_resolved.onOperator.length; i++) 
@@ -112,14 +121,17 @@ function IntegrateEveryTechSup()
                         case "Timeout":
                             employerElement_created.className = "employerTableCell flexRowStart status_timeout";
                         break;
+                        case "Pause":
+                            employerElement_created.className = "employerTableCell flexRowStart status_pause";
+                        break;
 
                         default:
-                            employerElement_created.className = "employerTableCell flexRowStart";
+                            employerElement_created.className = "employerTableCell status_offline flexRowStart";
                         break;
                     }
                     employerElement_created.id = "employerTableCell_id" + i;
-                    employerElement_created.innerHTML = nameCheckingString + " | " + currentStatus + " | Chats: " + Number(assignedChats);
-                    appendantContainer.prepend(employerElement_created);
+                    employerElement_created.innerHTML = Derussify(nameCheckingString) + " | " + currentStatus + " | Chats: " + Number(assignedChats);
+                    statusCont.prepend(employerElement_created);
                 }
                 console.log("integrating: " + i + " | " + statusJSon_resolved.onOperator[i].operator.fullName);
             }
@@ -145,7 +157,19 @@ function IntegrateEveryTechSup()
     }, 1);
 }
 
-document.getElementById("fetchingButton").onclick = function(){ IntegrateEveryTechSup(); }
-// IntegrateEveryTechSup();
+function AddListeners()
+{
+    buttonIntegrate.addEventListener('click', function()
+    {
+        IntegrateEveryTechSup();
+        PlayButtonAnimation(buttonIntegrate.id);
+    });
+}
+
+
+
+// Executing
+AddListeners();
+FetchingStatus();
 
 console.log("> AutoFAQ status receiver initialized successfully");

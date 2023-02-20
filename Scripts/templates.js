@@ -39,6 +39,7 @@ function init() {
             maxShablon_index = newResults.table.rows[0].c[2].v;
 
             addSelectorOption();
+            curShablon_index = Number(1);
             checkCurrentSelectorState();
         })
 };
@@ -88,10 +89,8 @@ function checkCurrentSelectorState(){
     {
         copyStringToClipboard(templateText_p.innerHTML);
 
-        buttonCopy.style.animation = "";
-        setTimeout(() => {
-            buttonCopy.style.animation = "buttonHappy 0.333s forwards";
-        }, 32);
+            // Animations
+        PlayButtonAnimation(buttonCopy.id);
     })
 
     templateText_p.innerHTML = results.table.rows[curShablon_index].c[0].v;
@@ -122,5 +121,4 @@ function copyStringToClipboard (str) {
 
 // Executing
 FirstInitialization();
-
 init();

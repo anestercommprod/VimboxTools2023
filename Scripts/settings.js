@@ -13,6 +13,10 @@ const saveAccountIDs = document.getElementById('saveTestIDs');
 const accountTeacherID = document.getElementById('testTeacherID');
 const accountStudentID = document.getElementById('testStudentID');
 
+const afConfigSheetID = document.getElementById('afboard_configSheetId');
+
+
+
 function InitSettingsHandler()
 {
     saveSheet.addEventListener('click', function(){
@@ -34,9 +38,15 @@ function InitSettingsHandler()
         localStorage.removeItem('sheetID');
         localStorage.removeItem('auditSheetID');
         localStorage.removeItem('scheduleSheetLink');
+        localStorage.removeItem('scheduleSheetID');
         localStorage.removeItem('testTeacherID');
         localStorage.removeItem('testStudentID');
         localStorage.removeItem('userRole');
+            // AF
+        localStorage.removeItem('afboard_groupChats');
+        localStorage.removeItem('afboard_groupCRM');
+        localStorage.removeItem('afboard_group2Line');
+        localStorage.removeItem('afboard_groupCSS');
 
         DisplayCurrentSelection();
     });
@@ -50,6 +60,8 @@ function DisplayCurrentSelection()
 
     accountTeacherID.value = localStorage.getItem('testTeacherID');
     accountStudentID.value = localStorage.getItem('testStudentID');
+
+    afConfigSheetID.value = localStorage.getItem('afboard_configSheetId')
 }
 
 function AboutTheRole()
@@ -67,37 +79,27 @@ function GreatAnims()
     buttonReset.addEventListener('click', function()
     {
         buttonReset.style.animation = "";
-        setTimeout(() => {
-            buttonReset.style.animation = "buttonHappyAdaptive 0.333s forwards";
-        }, 32);
+        PlayButtonAnimation(buttonReset.id);
     });
     saveSheet.addEventListener('click', function()
     {
         saveSheet.style.animation = "";
-        setTimeout(() => {
-            saveSheet.style.animation = "buttonHappyAdaptive 0.333s forwards";
-        }, 32);
+        PlayButtonAnimation(saveSheet.id);
     });
     saveAuditSheet.addEventListener('click', function()
     {
         saveAuditSheet.style.animation = "";
-        setTimeout(() => {
-            saveAuditSheet.style.animation = "buttonHappyAdaptive 0.333s forwards";
-        }, 32);
+        PlayButtonAnimation(saveAuditSheet.id);
     });
     saveScheduleSheet.addEventListener('click', function()
     {
         saveScheduleSheet.style.animation = "";
-        setTimeout(() => {
-            saveScheduleSheet.style.animation = "buttonHappyAdaptive 0.333s forwards";
-        }, 32);
+        PlayButtonAnimation(saveScheduleSheet.id);
     });
     saveAccountIDs.addEventListener('click', function()
     {
         saveAccountIDs.style.animation = "";
-        setTimeout(() => {
-            saveAccountIDs.style.animation = "buttonHappyAdaptive 0.333s forwards";
-        }, 32);
+        PlayButtonAnimation(saveAccountIDs.id);
     });
 }
 

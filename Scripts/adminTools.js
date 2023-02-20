@@ -43,7 +43,7 @@ function FillAuditResults()
         for (let i = 0; i < newResults.table.rows.length - 1; i++) {
                 // Initializing
             const employeeElement = document.createElement('p');
-            const name = newResults.table.rows[i].c[0].v.split(' ')[0] + " " + newResults.table.rows[i].c[0].v.split(' ')[1].slice(0, 1) + ".";
+            const name = Derussify(newResults.table.rows[i].c[0].v.split(' ')[0] + " " + newResults.table.rows[i].c[0].v.split(' ')[1].slice(0, 1) + ".");
             const ticketsChecked = newResults.table.rows[i].c[1].v;
             const ticketsInTotal = newResults.table.rows[i].c[2].v;
             const auditPercent = newResults.table.rows[i].c[3].f;
@@ -66,7 +66,7 @@ function FillAuditResults()
     }
     else{
         const employeeElement = document.createElement('p');
-        employeeElement.innerHTML = "No data been found for that certain range.<br>Try going through previous month.";
+        employeeElement.innerHTML = ThrowAnErr('201x0');
         employeeElement.className = "errMsg";
         endResultsContainer.appendChild(employeeElement);
     }
@@ -80,6 +80,7 @@ function AddListeners()
         auditButton.style.animation = "";
         setTimeout(() => {
             auditButton.style.animation = "buttonHappyAdaptive 0.333s forwards";
+            PlayButtonAnimation(auditButton.id);
         }, 32);
         
         GetAudit();
@@ -88,9 +89,7 @@ function AddListeners()
     scheduleButton.addEventListener('click', function()
     {
         scheduleButton.style.animation = "";
-        setTimeout(() => {
-            scheduleButton.style.animation = "buttonHappyAdaptive 0.333s forwards";
-        }, 32);
+        PlayButtonAnimation(scheduleButton.id);
         
         chrome.tabs.create({ url: localStorage.getItem('scheduleSheetLink') });
     });

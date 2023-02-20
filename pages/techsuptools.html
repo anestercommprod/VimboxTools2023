@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./../Styles/GlobalStyles.css">
 
     <script src="./../Scripts/techsuptools.js" defer></script>
+    <script src="./../Scripts/uiElements.js"></script>
+    <script src="./../Scripts/errHandler.js"></script>
 
     <style>
         .flexDefault_column{
@@ -30,11 +32,11 @@
             <p class="heading">Tech-Sup Tools</p>
         </a>
         <div class="flexDefault_column">
-            <input type="number" placeholder="Students' ID..." maxlength="11" id="studentIdInput">
+            <input type="number" placeholder="Students' ID..." maxlength="11" min="0" id="studentIdInput">
             <button id="generateLesson_forStudentWithTestTeacher">Generate Lesson</button>
         </div>
         <div class="flexDefault_column">
-            <input type="number" placeholder="Teachers' ID..." maxlength="11" id="teacherIdInput">
+            <input type="number" placeholder="Teachers' ID..." maxlength="11" min="0" id="teacherIdInput">
             <button id="generateLesson_forTeacherWithTestStudent">Generate Lesson</button>
         </div>
     </div>

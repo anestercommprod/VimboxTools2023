@@ -10,12 +10,15 @@
     <script src="./Scripts/initialize.js"></script>
     <script src="./Scripts/popup.js" defer></script>
     <script src="./../Scripts/eventHandler.js" defer></script>
+    <script src="./Scripts/uiElements.js"></script>
 
     <style>
         .heading{
             height: 38px;
             min-height: 38px;
             max-height: 38px;
+
+            font-weight: 300;
             
             display: flex;
             justify-content: center;
@@ -45,8 +48,8 @@
         <a class="hrefButton" href="./pages/settings.html">
             <button>Settings</button>
         </a>
-        <a class="hrefButton" href="#">
-            <button><i>#FAQ</i></button>
+        <a class="hrefButton" href="#" id="faqButton">
+            <button>#FAQ</button>
         </a>
     </div>
 </body>

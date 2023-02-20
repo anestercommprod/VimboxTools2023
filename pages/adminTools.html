@@ -10,10 +10,13 @@
 
     <script src="./../Scripts/adminTools.js" defer></script>
     <script src="./../Scripts/eventHandler.js" defer></script>
+    <script src="./../Scripts/uiElements.js"></script>
+    <script src="./../Scripts/errHandler.js"></script>
 
     <style>
         .contentHolder{
             padding-bottom: 0;
+            gap: 0;
         }
 
         .flexDefault_row{
@@ -28,6 +31,9 @@
             width: 100%;
             height: fit-content;
 
+            border-bottom: 1px solid var(--lightElementOutline_dark);
+            padding-bottom: var(--pagePadding);
+            
             justify-content: center;
             gap: var(--perElementGap);
         }
@@ -44,24 +50,26 @@
         .endResults{
             width: 100%;
             height: auto;
-            max-height: 238px;
+            max-height: 241px;
 
             padding: var(--pagePaddingSmall);
 
             justify-content: flex-start;
             align-items: flex-start;
             flex-wrap: nowrap;
+            gap: 8px;
 
             overflow-y: auto;
         }
         .employeeRow{
             width: inherit;
-            color:var(--apple_colorBlack);
+            color:var(--colorDark);
             font-size: 16px;
             outline: 1px solid rgba(0,0,0, 0.6);
             
             padding: 3px;
             border-radius: var(--elementBevelSmall);
+            white-space: nowrap;
         }
 
         .bgGood{

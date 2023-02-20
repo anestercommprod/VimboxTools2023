@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoFAQ test</title>
+    <title>AutoFAQ Status Board</title>
 
     <link rel="stylesheet" href="./../Styles/GlobalStyles.css">
     
     <script src="./../Scripts/autofaqStatus.js" defer></script>
     <script src="./../Scripts/eventHandler.js" defer></script>
+    <script src="./../Scripts/uiElements.js"></script>
 
     <style>
         body{
@@ -101,7 +102,7 @@
             border-radius: var(--elementBevelSmall);
 
             color: black;
-            font-size: 18px;
+            font-size: 17px;
         }
         .status_online{
             background-color: rgb(32, 128, 32)
@@ -115,6 +116,9 @@
         .status_timeout{
             background-color: rgb(48, 96, 128)
         }
+        .status_pause{
+            background-color: rgb(96, 64, 128)
+        }
 
         .heading{
             color: white;
@@ -126,15 +130,15 @@
         <p class="heading">AutoFAQ Status Board</p>
     </a>
     <div id="statusContainer" class="topSection_employers greatScroll_vertical">
-    
+        
     </div>
     
     <div id="buttonContainer" class="flexColumnCentered bottomSection_buttons">
         <button id="fetchingButton" class="buttonAF flexRowCentered">Integrate employer list</button>
         
         <select name="employeGroup" class="employerGroupSelector" id="employerGroupSelector">
+            <option value="techSup1chat" who="baby">Tech-Support 1st Line Chat(A. Paschenko)&nbsp;&nbsp;</option>
             <option value="techSup1crm2">Tech-Support 1st Line CRM2(E. Borisov)</option>
-            <option value="techSup1chat" who="baby">Tech-Support 1st Line Chat(A. Paschenko)</option>
             <option value="techSup2crm2">Tech-Support 2nd Line(A. Polyakov)</option>
             <option value="clientSupport1chat">Client Support Chats(O. Klimenko)</option>
         </select>

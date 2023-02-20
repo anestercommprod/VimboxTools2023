@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vimbox Tools - #FAQ</title>
+    
+    <link rel="stylesheet" href="./../../Styles/GlobalStyles.css">
+
+    <script src="./../../Scripts/uiElements.js"></script>
+    <script src="./../../Scripts/eventHandler.js"></script>
+
+    <style>
+        :root{
+            --ulGap: 16px;
+        }
+        *, html {
+            scroll-behavior: smooth !important;
+        }
+        body{
+            max-height: 100vh;
+            min-width: 100%;
+
+            background-color: var(--apple_colorBlack);
+            overflow: hidden;
+        }
+        .contentHolder{
+            height: 100%;
+            max-height: 100vh;
+            padding: var(--perElementGap);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+
+
+        p, a, ul, li{
+            color: var(--colorAlmostWhite) !important;
+            font-size: 20px;
+            font-weight: 300;
+        }
+        li{
+            margin-top: 8px;
+        }
+        ul{
+            margin-top: 24px;
+        }
+        .updateTopic{
+            margin-top: 8px;
+            margin-left: 24px;
+        }
+        a{
+            width: fit-content;
+
+            padding-right: 4px;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .faqHeader{
+            min-width: 100%;
+            width: 100%;
+            height: 48px;
+
+            font-size: 32px;
+            font-weight: 400;
+        }
+        .detailsHolder{
+            width: 100%;
+            height: fit-content;
+
+            display: flex;
+            flex-direction: column;
+            gap: var(--perElementGap);
+        }
+
+        .faqImg{
+            max-width: 452px;
+            min-width: 452px;
+            height: 601px;
+            min-height: 601px;
+
+            border-radius: var(--elementBevelSmall);
+            outline: 1px solid var(--standardElementOutlineWhite);
+        }
+        .faqImgLarge{
+            min-width: 600px;
+            max-width: 600px;
+            height: 840px;
+            min-height: 840px;
+            max-height: 840px;
+            
+            border-radius: var(--elementBevel);
+        }
+        .faqImg_googleStep{
+            width: inherit; 
+            height: auto !important;
+            aspect-ratio: auto;
+            
+            border-radius: var(--elementBevel);
+        }
+
+        .descriptionTable{
+            width: 100%;
+
+            padding: var(--pagePadding);
+            border-radius: var(--elementBevel);
+            outline: 1px solid var(--standardElementOutlineWhite);
+
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: var(--perElementGap);
+        }
+        .detailsTable{
+            width: fit-content;
+
+            padding: var(--pagePadding);
+            border-radius: var(--elementBevel);
+            outline: 1px solid var(--standardElementOutlineWhite);
+
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: var(--perElementGap);
+        }
+
+        .slackBadget{
+            padding: 3px;
+            border-radius: 4px;
+            background-color: rgba(26,42,51,1);
+            color: rgba(28,143,206,1);
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-shadow: 1px 1px 1px rgba(35, 178, 255, 0.333);
+            font-weight: 400;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contentHolder greatScroll_vertical">
+        <p class="faqHeader">Vimbox Tools | release 2023.2, version 1.12.0</p>
+        <p>This FAQ page is only eligable for version mentioned above.</p>
+        <p>Development & support: Alexander Nester, <span class="slackBadget">@AN</span> </p>
+        <br><br><br>
+        <div class="detailsHolder">
+            <a href="#scrollTo_mainPage"> > Main Page</a>
+            <a href="#scrollTo_templates"> > Templates</a>
+            <a href="#scrollTo_techsuptools"> > Tech-Sup Tools</a>
+            <a href="#scrollTo_admintools"> > Admin. Tools</a>
+            <a href="#scrollTo_afstatusboard"> > AutoFAQ Status board</a>
+            <a href="#scrollTo_settings"> > Settings</a>
+            <a href="#scrollTo_faq"> > #FAQ</a>
+            <br>
+            <a href="#scrollTo_suggestions"> > Suggestions</a>
+            <a href="#scrollTo_suggestions"> > Roadmap</a>
+            <br>
+            <a href="#scrollTo_newInThisVersion"> > Update logs</a>
+        </div>
+
+        <br><br><br><br><br>
+
+        <div id="scrollTo_mainPage" class="descriptionTable flexDefault_column">
+            <p>Main Page</p>
+            <img src="./imgs/vmTools_faq_mainPage.png" class="faqImg">
+            <p>The main page of an application. May one be blessed on their's path.</p>
+        </div>
+
+        <div id="scrollTo_templates" class="descriptionTable flexDefault_column">
+            <p>Templates</p>
+            <img src="./imgs/vmTools_faq_templates.png" class="faqImg">
+            <p>'Templates' enables you to store your custom templates in Google Sheet document & access them anytime, which is drastically decreases time to find right one & send it to the client.</p>
+            <p>At the top side of extension one can find droplist of all the templates, click on it & it may reveal all stored templates within default google spreadsheet. You can change it's id in <a href="#scrollTo_settings">Settings tab</a>.</p>
+            <p>Below the selector we placed templates' main text.<br>Below the main text area one may find a "Copy" button, clicking on it will put all the text from the template to your Windows Clipboard.</p>
+            
+            <br>
+
+            <details class="detailsTable flexDefault_column">
+                <summary>Creating custom template list</summary>
+                <div class="descriptionTable flexDefault_column" style="outline: none;">
+                    <p>Let me dive out of formalities to instruct you on making custom template library.</p>
+                    <br>
+                    <p>Firstly, head in to the original templates list <a href="https://docs.google.com/spreadsheets/d/1vSY4mgMXcwP05RmnTd9uUpSyOyrxjZ_bYmHb3zsDVwg/edit#gid=0" target="_blank">Google Spreadsheet</a> to descry it.</p>
+                    <p>Then make a copy of this document by clicking "File > Make a copy".</p>
+                    <img src="./imgs/vmTools_faq_templates_step2.png" class="faqImg_googleStep">
+                    <p>After a copy created, open it in your browser & copy id of renewed document of yours' and save it as a new ID in the extension settings. </p>
+                    <br>
+                    <p>Now that you accomplished easy steps, you have to understand the document logics.</p>
+                    <p>
+                        Column of "A" serves upon template text
+                        <br>
+                        Column of "B" serves upon template topic
+                        <br>
+                        Cell of "C1" serves for templates limit onload.
+                    </p>
+                    <p>Now you can replace my templates with your own, and if you went out of bounds and have settled more than three templates, be sure to increase the load limit at C1.<br>Remember: C1 is not a useless cell but a limiter without which the entire construction will refuse to work properly or even refuse to work at all. </p>
+                    <p>The formula for limiting templates is pretty easy: it's how much cells in a column "A" minus one.</p>
+                    <br>
+                    <p>Now that you're ready to use your custom templates, use them wisely.</p>
+                </div>
+                
+            </details>
+        </div>
+
+        <div id="scrollTo_techsuptools" class="descriptionTable flexDefault_column">
+            <p>Tech-Sup Tools</p>
+            <img src="./imgs/vmTools_faq_techsuptools.png" class="faqImg">
+            <p>At the moment, this page is still under development, but still it may land you a helping hand: one can now create test lesson through direct call to lesson-dashboards' api!</p>
+            <br>
+            <p>How does Students' ID works? <br> Inserting students' id into it's inputfield will produce a test lesson among your personal teacher account & student that you allued.</p>
+            <p>How does Teachers' ID works? <br> Inserting teachers' id into it's inputfield will produce a test lesson among your personal student account & teacher that you allued.</p>
+            <p>But remember to press "Generate Lesson" only if your mind is completely settled & you're sure about your decision. </p>    
+        </div>
+        
+        <div id="scrollTo_admintools" class="descriptionTable flexDefault_column">
+            <p>Admin. Tools</p>
+            <img src="./imgs/vmTools_faq_adminTools.png" class="faqImg">
+            <p>This page is also under development, yet it may land you a helping hand: one can now see quality results of others' work through audit process.</p>
+            <br>
+            <p>Select right month, press "Audit" and you're ready to go! It will reveal you the pure truth about yourself & your colleagues. Sometimes it will lead to impartial results & can dispair you. </p>
+            <p>Interacting with "Schedule" button will only open a schedule service for our team. If link is already deprecated, you can manually set it in settings tab. </p>    
+        </div>
+        
+        <div id="scrollTo_afstatusboard" class="descriptionTable flexDefault_column">
+            <p>AutoFAQ Status Board</p>
+            <img src="./imgs/vmTools_faq_autofaq.png" class="faqImg faqImgLarge">
+            <p>What a surprise: this is one of the pages that is completely ready to use.</p>
+            <br>
+            <p>Select employees group, press "Integrate" and you're ready to go! It will reveal every single employee that's currently working in AutoFAQ.</p>
+            <p>There's no other usecase to it for now.</p>
+        </div>
+        
+        <div id="scrollTo_settings" class="descriptionTable flexDefault_column">
+            <p>Settings</p>
+            <img src="./imgs/vmTools_faq_settings.png" class="faqImg faqImgLarge">
+            <p>Settings tab is here to set all up.</p>
+            <br>
+            <p><a href="#scrollTo_templates">Google Sheet ID</a> - It serves for templates. If you're templateless and have none on your own, leave it as it is.</p>
+            <p><a href="#scrollTo_admintools">Audit Sheet ID</a> - Link to an auditing document that's providing us all the necessary information about quality of everyone's work. it oughtn't be changed.</p>
+            <p><a href="#scrollTo_admintools">Schedule Sheet link</a> - link to a google spreadsheet document. Change it if current document is no longer valid or been deprecated.</p>
+            <p><a href="#scrollTo_techsuptools">Test Teachers' / Students' IDs</a> - It serves for a lesson-generation purpose. If you are id-indigent, then lessons won't be generated.</p>
+            <p><a href="#scrollTo_settings">Reset</a> - complete reset, as if you reinstalled this extension with roots.</p>
+        </div>
+        
+        <div id="scrollTo_faq" class="descriptionTable flexDefault_column">
+            <p>#FAQ</p>
+            <br>
+            <p>It's the page you are currently on.</p>
+            <br>
+        </div>
+
+        <br><br><br><br><br>
+            
+        <div id="scrollTo_suggestions" class="descriptionTable flexDefault_column">
+            <p>Suggestions</p>
+            <p>Before thinking of any, consider that some of already known suggestions will never be implemented, such as having native support for multi-language or dark/light theme changer.<br>Only valuable suggestions that will have use to others will be implemented in descending order.</p>
+            <p>If you have any, provide them to me directly within Slack: <span class="slackBadget">@AN</span></p>
+        </div>
+            
+        <br>
+
+        <div id="scrollTo_roadmap" class="descriptionTable flexDefault_column">
+            <p>Roadmap</p>
+            <br>
+            <p>February:</p>
+            <div class="flexDefault_column" style="padding-left: 24px; align-items: flex-start;">
+                <p>Finalize extension design project & follow it's nature since then.</p>
+                <p>Tableau integration to collect CSAT, AHT & OCC metrics according to allued timestamps.</p>
+            </div>
+            <p>March:</p>
+            <div class="flexDefault_column" style="padding-left: 24px; align-items: flex-start;">
+                <p>Fix possible unintended misbehaviours that may appear during use of an extension.</p>
+                <p>Develop extension auto-update system to keep everyone with up-to-date version.</p>
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <div id="scrollTo_newInThisVersion" class="descriptionTable flexDefault_column">
+            <p>Update Log</p>
+            <details>
+                <summary>Vimbox Tools 2023.2 V11</summary>
+                <br>
+                <p class="updateTopic">Release date: 08/02/2023</p>
+                <p class="updateTopic">Development time since previous release: ~6 hours</p>
+                <br>
+                <ul>
+                    <li style="margin-bottom: var(--ulGap);">Error Handling.
+                        <ul>Now you're able to identify errors more precisely and not be deluded by systems' misbehaviours.</ul>
+                    </li>
+                    <li style="margin-bottom: var(--ulGap);">Lesson Generation.
+                        <ul>Users were deprived to create lessons for administrative accounts that does not belong / accommodated with regular teachers / students database.</ul>
+                    </li>
+                    <li style="margin-bottom: var(--ulGap);">Partial bug-fixes.
+                        <ul>Fixed bug when user been able to create lesson with NULL id.</ul>
+                        <ul>Fixed bug when user been able to create lesson with NEGATIVE id.</ul>
+                        <ul>Fixed conceivable perpetual loading status on AutoFAQ Status board. Now system will send you an error instead of infinite loading message.</ul>
+                        <ul>Fixed templates indexing bug: when fetched, templates' topic diverges with the templates' text.</ul>
+                        <ul>Removed unusual development alerts.</ul>
+                    </li>
+                    <li>UI improvements
+                        <ul>Animations were changed to more rapid ones.</ul>
+                        <ul>Every single symbol is now corresponds with extension generic design concept.</ul>
+                        <ul>Fixed gradient color-gamut issue on some GPUs.</ul>
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Vimbox Tools 2023.2 V12</summary>
+                <br>
+                <p class="updateTopic">Release date: 12/02/2023</p>
+                <p class="updateTopic">Development time since previous release: ~7 hours</p>
+                <br>
+                <ul>
+                    <ul>AutoFAQ Status Board
+                        <li class="updateTopic">Added config-spreadsheet that updates only once and has a reset button.<br>The purpose is because of spontaneous behaviour of AutoFAQ developers & their intents on preventing external system from working correctly.</li>
+                    </ul>
+                    <ul>UI improvements
+                        <li class="updateTopic">"Inter" font could have been superseded with "Noto Sans JP", nonetheless despite a few hours of research spended onto deeping into fonts libraries, Inter font prevailed over it's competitors.</li>
+                        <li class="updateTopic">Jaunting over settings tab been not that pleasurefli, too. Implemented defalit delineation layout system for storing elements to fit overall composition pattern.</li>
+                        <li class="updateTopic">Color "--apple_colorBlack" been replaced with a lighter one since V12. <br>
+                            According to essential color design principles & palette, apple's color was not really applicable or rather even improper one at current extensions' color scheme.</li>
+                        <li class="updateTopic">All the text been softed out a bit to ameliorate user experience & acquaintance with extension.</li>
+                        <li class="updateTopic">Improved adaptive button animations.<br>
+                            Now they are bouncing a bit more realisticly.</li>
+                    </ul>
+                    <ul>FAQ improvemets.
+                        <li class="updateTopic">Yet one have ability to see not only one version changes but mlitiple.<br>All updates since 2023.2 V11 will be stored in FAQ page.</li>
+                    </ul>
+                </ul>
+            </details>
+        </div>
+    </div>    
+</div>    
+</body>
+</html>
