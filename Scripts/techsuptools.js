@@ -1,6 +1,7 @@
 
 const newStudentId = document.getElementById('studentIdInput');
 const newTeacherId = document.getElementById('teacherIdInput');
+const lessonSelector = document.getElementById('curLessonType');
 const generateLesson_forStudent = document.getElementById('generateLesson_forStudentWithTestTeacher'); 
 const generateLesson_forTeacher = document.getElementById('generateLesson_forTeacherWithTestStudent');
 
@@ -14,7 +15,7 @@ function GenerateLesson_forStudent(){
     if(localStorage.getItem('testTeacherID') != null && newStudentId.value.length >= 3)
     {
         randomHash = GenerateHash(14);
-        fetch(`https://api-english.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`, 
+        fetch(`https://${lessonSelector.value}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`, 
         {
             "headers": {
                 "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -30,7 +31,7 @@ function GenerateLesson_forStudent(){
                 "sec-fetch-user": "?1",
                 "upgrade-insecure-requests": "1"
             },
-            "referrer": "https://api-english.skyeng.ru/admin/tech-support-room/create",
+            "referrer": "https://${lessonSelector.value}.skyeng.ru/admin/tech-support-room/create",
             "referrerPolicy": "strict-origin-when-cross-origin",
             "body": `${randomHash}%5Btype%5D=test&${randomHash}%5BteacherId%5D=${localStorage.getItem('testTeacherID')}&${randomHash}%5BstudentIds%5D=${newStudentId.value}&btn_create_and_list=`,
             "method": "POST",
@@ -62,7 +63,7 @@ function GenerateLesson_forTeacher(){
     if(localStorage.getItem('testStudentID') != null && newTeacherId.value.length >= 3)
     {
         randomHash = GenerateHash(14);
-        fetch(`https://api-english.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`, 
+        fetch(`https://${lessonSelector.value}.skyeng.ru/admin/tech-support-room/create?uniqid=${randomHash}`, 
         {
             "headers": {
                 "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -78,7 +79,7 @@ function GenerateLesson_forTeacher(){
                 "sec-fetch-user": "?1",
                 "upgrade-insecure-requests": "1"
             },
-            "referrer": "https://api-english.skyeng.ru/admin/tech-support-room/create",
+            "referrer": "https://${lessonSelector.value}.skyeng.ru/admin/tech-support-room/create",
             "referrerPolicy": "strict-origin-when-cross-origin",
             "body": `${randomHash}%5Btype%5D=test&${randomHash}%5BteacherId%5D=${newTeacherId.value}&${randomHash}%5BstudentIds%5D=${localStorage.getItem('testStudentID')}&btn_create_and_list=`,
             "method": "POST",

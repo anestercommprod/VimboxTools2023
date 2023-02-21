@@ -24,6 +24,9 @@
         input{
             min-width: var(--buttonWidth);
         }
+        .smallerFont{
+            font-size: 22px;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +34,20 @@
         <a class="hrefButton" href="./../popup.html">
             <p class="heading">Tech-Sup Tools</p>
         </a>
+        <div class="flexDefault_column" style="padding-top: 8px;">
+            <p class="heading smallerFont">Lesson type</p>
+            <select class="lessonTypeSelector" id="curLessonType">
+                <option value="api-english">English</option>
+                <option value="api-math">Math</option>
+                <option value="api-chess">Chess</option>
+                <option value="api-physics">Physics</option>
+                <option value="api-russian">Russian</option>
+                <option value="api-preschool">Pre-School</option>
+                <option value="api-social-science">Social Science</option>
+                <option value="api-computer-science">Computer Science</option>
+                <option value="api-chemistry">Chemistry</option>
+            </select>
+        </div>
         <div class="flexDefault_column">
             <input type="number" placeholder="Students' ID..." maxlength="11" min="0" id="studentIdInput">
             <button id="generateLesson_forStudentWithTestTeacher">Generate Lesson</button>
