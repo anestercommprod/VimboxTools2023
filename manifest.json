@@ -3,26 +3,30 @@
   
     "name": "Vimbox Tools | 2023.2",
     "description": "Vimbox Tools by Alexander Nester",
-    "version": "1.12.0",
+    "version": "1.13.0",
     "icons": {
-      "128": "icon128.png",
-      "48": "icon48.png",
-      "16": "icon16.png"
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
     },
 
     "background":
     {
-      "page": "popup.html"
+        "page": "popup.html"
     },
-    
-  
+
     "permissions": [
-      "identity",
-      "*://*/*"
-      ],
+        "identity",
+        "*://*/*",
+        "tabs",
+        "activeTab",
+        "desktopCapture",
+        "tabCapture",
+        "downloads"
+    ],
   
     "browser_action": {
-      "default_icon": "icon48.png",
-      "default_popup": "popup.html"
+        "default_icon": "icon48.png",
+        "default_popup": "popup.html"
     }
   }

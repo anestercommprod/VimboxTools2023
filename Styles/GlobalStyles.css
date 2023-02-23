@@ -236,6 +236,10 @@ a:visited{
 }
 
 
+.fc_dark{
+    color: var(--apple_colorBlack);
+}
+
 
 
 

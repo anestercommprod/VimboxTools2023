@@ -7,24 +7,27 @@ let newResults;
 
 
 
-monthSelector.value = GetCurrentMonth();
-
 
 
 function GetAudit()
 {
+        // Let user know that call been initialized
+    endResultsContainer.innerHTML = "<p class='fc_dark'>Loading...</p>";
+
     const base = `https://docs.google.com/spreadsheets/d/${localStorage.getItem('auditSheetID')}/gviz/tq?`;
     const sheetName = '2ndLineMonth' + monthSelector.value; //GetCurrentMonth();
     const query = encodeURIComponent('Select *')
     const request = `${base}&sheet=${sheetName}&tq=${query}`
-    
-        fetch(request, {})
-            .then(res => res.text())
-            .then(rep => {
-                results = JSON.parse(/(?<=\()(.*?)(?=\);)/.exec(rep)[0]);
-                newResults = results;
-                FillAuditResults();
-            });    
+
+        // Fetch actual data
+    fetch(request, {})
+        .then(res => res.text())
+        .then(rep => {
+                // Regex parsing
+            results = JSON.parse(/(?<=\()(.*?)(?=\);)/.exec(rep)[0]);
+            newResults = results;
+            FillAuditResults();
+        });    
 }
 function GetCurrentMonth()
 {
@@ -99,3 +102,5 @@ function AddListeners()
 
 // Executing
 AddListeners();
+    // Set current month in month selector
+monthSelector.value = GetCurrentMonth();
